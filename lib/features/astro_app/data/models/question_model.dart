@@ -21,7 +21,8 @@ class QuestionModel extends Question {
             suggestions: suggestions);
 
   factory QuestionModel.fromJSON(Map<String, dynamic> json) {
-    final List<String>? suggestions = null;
+    final List<String> suggestions =
+        (json[jsonSuggestions] as List).map((e) => e.toString()).toList();
     return QuestionModel(
         id: json[jsonId],
         name: json[jsonName],
